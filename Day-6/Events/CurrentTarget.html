@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        Click parent
+        <div id="child">Click child</div>
+      </div>
+      
+      <button id="reset">Reset</button>
+      <pre id="output"></pre>
+      
+</body>
+<script>
+  const output = document.querySelector("#output");
+const parent = document.querySelector("#parent");
+parent.addEventListener("click", (event) => {
+  const currentTarget = event.currentTarget.getAttribute("id");
+  const target = event.target.getAttribute("id");
+  output.textContent = `Current target: ${currentTarget}\n`;
+  output.textContent += `Target: ${target}`;
+});
+
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", () => document.location.reload());
+
+</script>
+</html>
