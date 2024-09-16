@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+    <style>
+       p{
+        display: none;
+       }
+    </style>
+</head>
+<body style="background-color: #212121; color: #fff;">
+   <div class="parent">
+    <!-- <div id="day" class="day">Monday <p>Hello World</p></div> -->
+    <div id="day" class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+   </div>
+</body>
+
+<script>
+
+    // const element = document.getElementById('day')
+    // console.log(element.innerHTML);
+    // console.log(element.innerText);
+    // console.log(element.textContent);
+
+    const parent = document.querySelector('.parent');
+    console.log(parent);
+    // console.log(parent.innerHTML);
+    // console.log(parent.innerText);
+    // console.log(parent.textContent);
+    console.log(parent.children);
+    console.log(parent.children[1].innerHTML);
+
+    // for(let i = 0 ; i < parent.children.length ; i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    // console.log(parent.firstElementChild);
+
+    const dayOne = document.querySelector('.day');
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log("Nodes : ",parent.childNodes);
+</script>
+</html>

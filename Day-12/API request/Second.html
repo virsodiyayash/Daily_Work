@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h1 class="card-title">Card title</h1>
+          <h3 class="followersHeader">Followers : <p class="followersText"></p></h3>
+          <h3 class="followingHeader">Followers : <p class="followingText"></p></h3>
+          <button id="button">Click me!</button>
+        </div>
+      </div>
+</body>
+<script>
+    const button = document.querySelector('#button');
+    const cardTitle = document.querySelector('.card-title');
+    const img = document.querySelector('img');
+    let followersOfUser = document.querySelector('.followersText');
+    let followingOfUser = document.querySelector('.followingText');
+    let imageOfUser;
+    let followers;
+    let name;
+
+    const requestUrl = "https://api.github.com/users/virsodiyayash";
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET' , requestUrl);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);
+            console.log(data.followers);
+            imageOfUser = data.avatar_url;
+            followers = data.followers;
+            following = data.following;
+            name = data.login;
+
+            console.log(followers);
+            console.log(following);
+
+            button.addEventListener('click' , () => {
+                cardTitle.innerText = name;
+                img.src = imageOfUser;
+                followersOfUser.innerText = followers;
+                followingOfUser.innerText = following;
+            })
+        }
+    }
+    // console.log("HERE");
+    xhr.send();
+
+   
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>

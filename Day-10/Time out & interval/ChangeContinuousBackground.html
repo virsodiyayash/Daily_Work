@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello by Yash patel</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    const body = document.querySelector('body');
+    let intervalId;
+
+    function getRandomColor(){
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+
+        return `rgb(${r} , ${g} , ${b})`;
+    }
+
+    start.addEventListener('click' , () => {
+        
+        if(!intervalId){
+            intervalId = setInterval(() => {
+                body.style.backgroundColor = getRandomColor();
+            } , 1000);
+        }
+    });
+
+    stop.addEventListener('click' , () => {
+        clearInterval(intervalId);
+        intervalId = null;
+    })
+
+</script>
+</html>
